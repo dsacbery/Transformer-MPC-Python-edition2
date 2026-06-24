@@ -57,8 +57,6 @@ outputs/figures/
 outputs/figures/trans_result/
 ```
 
-中文 `.docx` 分析报告属于作者后续分析材料，不属于本仓库主体复现实验流程。
-
 ## 结果解读边界
 
 version2 的主要结论应表述为阶段性验证：Transformer 风险输出已经接入 MPC 权重、约束和速度参考自适应调节，并在多数场景的综合代价上优于 Fixed MPC 和 Rule-risk MPC。与此同时，极端低附着和高速工况下仍存在路径完成率不足、横向误差过大和 MPC 回退次数偏高的问题，后续需要继续校准风险标签、速度衰减和可行性约束。
