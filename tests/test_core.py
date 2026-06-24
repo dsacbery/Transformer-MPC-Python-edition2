@@ -175,15 +175,6 @@ class CoreBehaviorTests(unittest.TestCase):
         )
         self.assertEqual(select_zoom_scenario(df), "high")
 
-    def test_report_scripts_use_local_version2_root(self):
-        from pathlib import Path
-
-        root = Path(__file__).resolve().parents[1]
-        for name in ("build_result_docx.py", "build_trans_result_docx.py"):
-            source = (root / name).read_text(encoding="utf-8")
-            self.assertIn("ROOT = Path(__file__).resolve().parent", source)
-            self.assertNotIn('ROOT = Path("/Users/dsacbery/Study/code/TRANS")', source)
-
     def test_reference_line_helpers_add_baseline_and_dlc_path(self):
         import matplotlib
 

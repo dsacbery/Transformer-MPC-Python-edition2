@@ -4,32 +4,33 @@
 
 ## 运行环境
 
-优先使用项目已有虚拟环境：
+建议使用 Python 虚拟环境安装依赖：
 
 ```bash
-/Users/dsacbery/Study/code/.venv/bin/python
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
 ```
 
-说明：该环境没有安装 `pytest` 和 `python-docx`。核心测试使用 `unittest`；`.docx` 报告生成使用 Codex 工作区文档运行时。
+本项目核心测试使用 `unittest`，不依赖 `pytest`。`data/`、`checkpoints/` 和 `outputs/` 是运行脚本生成的实验产物，不纳入 Git 版本管理。
 
 ## 一键式运行顺序
 
 ```bash
-cd /Users/dsacbery/Study/code/TRANS/version2
-/Users/dsacbery/Study/code/.venv/bin/python -m unittest discover -s tests -v
-/Users/dsacbery/Study/code/.venv/bin/python scripts/generate_dataset.py
-/Users/dsacbery/Study/code/.venv/bin/python scripts/train_transformer.py
-/Users/dsacbery/Study/code/.venv/bin/python scripts/run_experiments.py
-/Users/dsacbery/Study/code/.venv/bin/python scripts/analyze_advantage.py
-/Users/dsacbery/Study/code/.venv/bin/python scripts/generate_trans_result_figures.py
+python -m unittest discover -s tests -v
+python scripts/generate_dataset.py
+python scripts/train_transformer.py
+python scripts/run_experiments.py
+python scripts/analyze_advantage.py
+python scripts/generate_trans_result_figures.py
 ```
 
 quick 烟测仍然保留：
 
 ```bash
-/Users/dsacbery/Study/code/.venv/bin/python scripts/generate_dataset.py --quick
-/Users/dsacbery/Study/code/.venv/bin/python scripts/train_transformer.py --quick
-/Users/dsacbery/Study/code/.venv/bin/python scripts/run_experiments.py --quick
+python scripts/generate_dataset.py --quick
+python scripts/train_transformer.py --quick
+python scripts/run_experiments.py --quick
 ```
 
 ## version2 默认配置
@@ -56,7 +57,7 @@ outputs/figures/
 outputs/figures/trans_result/
 ```
 
-`outputs/figures/trans_result/version2_trans_result_analysis.docx` 是基于 7 张核心图生成的中文分析报告。当前机器缺少 `soffice`，因此该 DOCX 未完成页面渲染视觉 QA。
+中文 `.docx` 分析报告属于作者后续分析材料，不属于本仓库主体复现实验流程。
 
 ## 结果解读边界
 
